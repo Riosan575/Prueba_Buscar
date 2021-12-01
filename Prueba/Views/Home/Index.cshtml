@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="">
+    <div>
+        <form action="/home/index" method="get">
+            <input type="text" name="query" />
+            <button>Buscar</button>
+        </form>
+    </div>
+    <div>
+        @foreach (var item in Model)
+        {
+        <ul>
+            <li>
+                <p>@item.Titulo</p>
+                <p>@item.Contenido</p>
+            </li>
+        </ul>
+        }
+    </div>
+</div>
