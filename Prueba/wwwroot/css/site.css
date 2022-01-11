@@ -69,3 +69,24 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+#mostrar{
+    text-align: center;
+}
+.card {
+    display: inline-flex;
+    text-align: left;
+    margin: 10px;
+    
+}
+.contenedor:hover img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.contenedor {
+    cursor: pointer;
+    overflow: hidden;
+}
+.contenedor img {
+    transition: 300ms all ease;
+}

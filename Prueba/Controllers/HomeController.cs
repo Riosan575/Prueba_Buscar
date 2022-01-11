@@ -20,14 +20,13 @@ namespace Prueba.Controllers
             this.home = home;
         }
 
-        public IActionResult Index(string query)
+        public IActionResult Index()
         {          
-            return View(home.GetAll(query));
+            return View();
         }
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Privacy(string query)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(home.GetAll(query));
         }
     }
 }

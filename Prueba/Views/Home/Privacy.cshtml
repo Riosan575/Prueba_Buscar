@@ -1,6 +1,17 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    Layout = null;
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+@foreach (var item in Model)
+{
+    <div class="card" style="width: 18rem;">
+        <div class="contenedor">
+            <img src="@item.Img" class="card-img-top d" alt="..." height="350">
+        </div>        
+        <div class="card-body">
+            <h5 class="card-title">@item.Titulo</h5>
+            <p class="card-text">@item.Contenido</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+}
