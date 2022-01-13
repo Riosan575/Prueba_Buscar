@@ -90,3 +90,10 @@ body {
 .contenedor img {
     transition: 300ms all ease;
 }
+/*COMMENTS*/
+.CajaComment{
+    border: 1px solid black;
+    margin: 10px auto;
+    width: 400px;
+    height: 100px;
+}

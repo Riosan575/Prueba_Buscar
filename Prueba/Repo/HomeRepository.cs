@@ -1,4 +1,5 @@
-﻿using Prueba.DB;
+﻿using Microsoft.EntityFrameworkCore;
+using Prueba.DB;
 using Prueba.Models;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ namespace Prueba.Repo
     public interface IHome
     {
         List<Note> GetAll(string query);
+        Note SearchNote(int id);
+        List<Comment> GetAllComment(int id);
     }
     public class HomeRepository : IHome
     {
@@ -27,6 +30,16 @@ namespace Prueba.Repo
             }
 
             return context.Notes.ToList();
+        }
+
+        public List<Comment> GetAllComment(int id)
+        {
+            return context.Comments.Where(o => o.IdNote == id).ToList();
+        }
+
+        public Note SearchNote(int id)
+        {
+            return context.Notes.Where(o => o.Id == id).FirstOrDefault();
         }
     }
 }
