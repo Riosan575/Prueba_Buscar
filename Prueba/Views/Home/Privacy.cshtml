@@ -6,12 +6,11 @@
 {
     <div class="card" style="width: 18rem;">
         <div class="contenedor">
-            <img src="@item.Img" class="card-img-top d" alt="..." height="350">
-        </div>        
+            <a href="/home/comment?id=@item.Id"><img src="@item.Img" class="card-img-top d" alt="..." height="350"></a>
+        </div>
         <div class="card-body">
-            <h5 class="card-title">@item.Titulo</h5>
-            <p class="card-text">@item.Contenido</p>
-            <a href="/home/comment?id=@item.Id" class="btn btn-primary">Comentar</a>
+            <h5 class="card-title text-uppercase">@item.Titulo</h5>
+            <p class="card-text">@item.Contenido.Substring(0, 50)</p>
         </div>
     </div>
 }

@@ -23,7 +23,7 @@ namespace Prueba.Controllers
         }
 
         public IActionResult Index()
-        {          
+        {
             return View();
         }
         public IActionResult Privacy(string query)
@@ -35,18 +35,21 @@ namespace Prueba.Controllers
         {
             var note = home.SearchNote(id);
             ViewBag.comment = home.GetAllComment(id);
-            ViewBag.reply = context.ReplyComments.ToList();           
+            ViewBag.reply = context.ReplyComments.ToList();
             return View(note);
         }
         [HttpPost]
         public IActionResult Comment(Comment comment, int idNote)
         {
-            comment.IdNote = idNote;
-            comment.Date = DateTime.Now;
-            context.Comments.Add(comment);
-            context.SaveChanges();
-
-            return RedirectToAction("Comment", new { Id = comment.IdNote});
+            if (ModelState.IsValid)
+            {
+                comment.IdNote = idNote;
+                comment.Date = DateTime.Now;
+                context.Comments.Add(comment);
+                context.SaveChanges();
+                return RedirectToAction("Comment", new { Id = comment.IdNote });
+            }
+            return RedirectToAction("Comment", new { Id = comment.IdNote });
         }
         [HttpPost]
         public IActionResult ReplyComment(ReplyComment replyComment, Comment comment, int idComment)

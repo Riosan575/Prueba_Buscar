@@ -26,36 +26,4 @@ $btnBuscar.click(function (e) {
 });
 
 
-//var $btnMostrar = $('.btnMostrar');
 
-//$btnMostrar.click(function () {
-
-
-//    var $this = $(this);
-
-//    $this.attr('hidden', 'hidden');
-
-
-//    var request = jQuery.ajax({
-//        url: '/home/replycomment',
-//        type: 'GET'
-//    });
-
-//    request.done(function (element) {
-
-//        var $ver = $this.closest('.card').find('.mosCom');
-
-//        $ver.html(element);
-//    });    
-//});
-
-
-
-//$('#btnMostrar').click(function () {
-//    $('.verText').show();
-//});
-
-
-//$('.btnResp').click(function () {
-//    $('.btnResp').attr('hidden', 'hidden');
-//});

@@ -8,6 +8,17 @@
             <p class="card-text">@Model.Contenido</p>
         </div>
     </div>
+    <hr />
+    <span class="text-danger">@ViewBag.ErroMessage</span>
+    <hr />
+    <div>
+        <form action="/home/comment?idNote=@Model.Id" method="post">
+            <textarea class="p-3 form-control" rows="10" name="Comments"></textarea>
+            <div class="mt-2">
+                <button class="btn btn-primary">Comment</button>
+            </div>
+        </form>
+    </div>
     <div class="container">
         <div class="card">
             @foreach (var item in ViewBag.comment)
@@ -16,7 +27,7 @@
 
                     <div class="row">
                         <div class="col-md-2">
-                            <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid" />
+                            <img src="https://cdn2.actitudfem.com/media/files/images/2021/08/principal-goku-dragon-ball-es-asexual.jpg" class="img img-rounded img-fluid img-thumbnail" />
                             <p class="text-secondary text-center">@item.Date</p>
                         </div>
                         <div class="col-md-10">
@@ -30,20 +41,20 @@
                             </p>
                             <div class="clearfix"></div>
                             <p>@item.Comments</p>
-                            @*<p>
-                                <button id="btnMostrar" class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</button>
-                            </p>*@
+                            <p>
+                                <a class="float-right btn btn-outline-primary ml-2" role="button" data-toggle="collapse" href="#replyCommentT_@item.Id" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-reply"></i> Reply</a>
+                            </p>
                         </div>
                     </div>
-                    @*<div class="m-2 verText">
+                    <div class="collapse m-2" id="replyCommentT_@item.Id">
                         <form action="/home/replycomment?idcomment=@item.Id&&idNote=@Model.Id" method="post">
-                            <textarea class="p-1" name="RespComment" rows="5" cols="51"></textarea>
-
+                            <textarea class="p-1" name="RespComment" rows="5" style="width: 100%"></textarea>
+                            <span class="text-danger">@Html.ValidationMessage("RespComment")</span>
                             <div class="mr-2">
                                 <button class="btnResp btn btn-primary">Responder</button>
                             </div>
                         </form>
-                    </div>*@
+                    </div>
 
 
                     @foreach (var item2 in ViewBag.reply)
@@ -70,16 +81,6 @@
             }
         </div>
     </div>
-    <div>
-        <form action="/home/comment?idNote=@Model.Id" method="post">
-            <textarea class="p-1" name="Comments" rows="10" cols="80"></textarea>
-            <div>
-                <button class="btn btn-primary">Comment</button>
-            </div>
-        </form>
-
-    </div>
 </div>
-
 
 
