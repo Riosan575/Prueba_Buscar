@@ -25,5 +25,10 @@ $btnBuscar.click(function (e) {
     $('#search').val(null);
 });
 
+$(document).ready(function () {
+    $('.summernote').summernote();
+});
+
+
 
 
